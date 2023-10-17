@@ -4,6 +4,8 @@ import { Breadcrumb, BreadcrumbItem,
     Button, Row, Col, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, Form, Errors, actions} from 'react-redux-form';
+import { baseUrl } from '../shared/baseUrl';
+
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -21,16 +23,29 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val
         
     }
 
+    
    
-    handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
-        this.props.resetFeedbackForm();
-        
-    }
-
+ handleSubmit(values) {
+    alert("Thank you for your feedback: " + JSON.stringify(values));
+    var date = new Date().toISOString();
+    var feedback = {...values, date };
+    this.props.postFeedback(feedback);
+    this.props.resetFeedbackForm();
+        // this.props.postFeedback(this.props.firstname, values.lastname, values.telnum, values.email, values.contactType, values.message);
+    };
+ 
+    
 
     render() {
+             
+        
+        // fetch(baseUrl + 'feedback', {
+        //     method: 'POST',
+        //     body: JSON.stringify(this.state)
+        //     }).then(function(response) {
+        //         console.log(response)
+        //         return response.json()
+        //         })
 
         console.log('Contact Component render is invoked');
         
@@ -197,7 +212,7 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val
                             </Row>
                             <Row className="form-group">
                                 <Col md={{size:10, offset: 2}}>
-                                    <Button type="submit" color="primary">
+                                    <Button type="submit" color="primary" >
                                     Send Feedback
                                     </Button>
                                 </Col>
