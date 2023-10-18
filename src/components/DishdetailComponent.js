@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from 'react';
-import { Card, CardImg, CardBody,Col,Row, CardTitle, CardText, Breadcrumb, BreadcrumbItem, Button, Form, FormGroup, Input, Label, ModalHeader, ModalBody, Modal} from 'reactstrap';
+import { Card, CardImg, CardBody,Col,Row, CardTitle, CardText, Breadcrumb, BreadcrumbItem, Button, Label, ModalHeader, ModalBody, Modal} from 'reactstrap';
 import {Link } from 'react-router-dom';
 import { Control, LocalForm, Errors} from 'react-redux-form';
 import { Loading } from './LoadingComponent';

@@ -1,10 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem,
     Button, Row, Col, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Control, Form, Errors, actions} from 'react-redux-form';
-import { baseUrl } from '../shared/baseUrl';
+import { Control, Form, Errors} from 'react-redux-form';
 
 
 const required = (val) => val && val.length;
